@@ -77,43 +77,18 @@ namespace Lab5TP
                 double result = activePoint.CalculateArea();
                 MessageBox.Show("Площадь_О: " + result);
             }
-            else 
-            {
-                MessageBox.Show("Невозможно вычислить Площадь_О для активного объекта.");
-            }
         }
 
         private void Square_V(object sender, EventArgs e)
         {
-            if (t is Circle)
+            Point activeFigure = t;
+            if (activeFigure != null)
             {
-                Circle activeCircle = (Circle)t;
-                double result = activeCircle.CalculateVirtualArea();
+                double result = activeFigure.CalculateVirtualArea();
                 MessageBox.Show("Площадь_В: " + result);
             }
-            else if (t is Quadrant)
-            {
-                Quadrant activeQuadrant = (Quadrant)t;
-                double result = activeQuadrant.CalculateVirtualArea();
-                MessageBox.Show("Площадь_В: " + result);
-            }
-            else if (t is IsoscelesTriangle)
-            {
-                IsoscelesTriangle activeTriangle = (IsoscelesTriangle)t;
-                double result = activeTriangle.CalculateVirtualArea();
-                MessageBox.Show("Площадь_В: " + result);
-            }
-            else if (t is Point)
-            {
-                Point activePoint = (Point)t;
-                double result = activePoint.CalculateVirtualArea();
-                MessageBox.Show("Площадь_В: " + result);
-            }
-            else
-            {
-                MessageBox.Show("Невозможно вычислить Площадь_В для активного объекта.");
-            }
-        }
+        } // одной строчкой
+        
 
         private void Diametr(object sender, EventArgs e)
         {
@@ -162,6 +137,5 @@ namespace Lab5TP
                 MessageBox.Show("Метод GetDiagonal() для активного объекта не определен");
             }
         }
-
     }
 }
