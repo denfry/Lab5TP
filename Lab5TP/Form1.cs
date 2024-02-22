@@ -19,38 +19,149 @@ namespace Lab5TP
         public Form1()
         {
             InitializeComponent();
-            circle = new Circle(5); // Пример параметра, можно использовать любые значения
-            triangle = new IsoscelesTriangle(6, 8); // Пример параметров, можно использовать любые значения
-            quadrant = new Quadrant(4); // Пример параметра, можно использовать любые значения
+            circle = new Circle(5);
+            triangle = new IsoscelesTriangle(6, 8);
+            quadrant = new Quadrant(4);
 
             
             t = new Point();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            // Выводим имя класса или название нажатой кнопки
+        private void PointSetActive(object sender, EventArgs e)
+        { 
+            t = new Point();
             label1.Text = "Активный класс: " + t.GetType().Name;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CircleSetActive(object sender, EventArgs e)
         {
             t = circle;
-            // Выводим имя класса или название нажатой кнопки
             label1.Text = "Активный класс: " + circle.GetType().Name;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void TriangleSetActive(object sender, EventArgs e)
         {
             t = triangle;
             label1.Text = "Активный класс: " + triangle.GetType().Name;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void QuadrantSetActive(object sender, EventArgs e)
         {
             t = quadrant;
             label1.Text = "Активный класс: " + quadrant.GetType().Name;
         }
+
+        private void Square_O(object sender, EventArgs e)
+        {
+            if (t is Circle)
+            {
+                Circle activeCircle = (Circle)t;
+                double result = activeCircle.CalculateArea();
+                MessageBox.Show("Площадь_О: " + result);
+            }
+            else if (t is IsoscelesTriangle)
+            {
+                IsoscelesTriangle activeTriangle = (IsoscelesTriangle)t;
+                double result = activeTriangle.CalculateArea();
+                MessageBox.Show("Площадь_О: " + result);
+            }
+            else if (t is Quadrant)
+            {
+                Quadrant activeQuadrant = (Quadrant)t;
+                double result = activeQuadrant.CalculateArea();
+                MessageBox.Show("Площадь_О: " + result);
+            }
+            else if (t is Point)
+            {
+                Point activePoint = (Point)t;
+                double result = activePoint.CalculateArea();
+                MessageBox.Show("Площадь_О: " + result);
+            }
+            else 
+            {
+                MessageBox.Show("Невозможно вычислить Площадь_О для активного объекта.");
+            }
+        }
+
+        private void Square_V(object sender, EventArgs e)
+        {
+            if (t is Circle)
+            {
+                Circle activeCircle = (Circle)t;
+                double result = activeCircle.CalculateVirtualArea();
+                MessageBox.Show("Площадь_В: " + result);
+            }
+            else if (t is Quadrant)
+            {
+                Quadrant activeQuadrant = (Quadrant)t;
+                double result = activeQuadrant.CalculateVirtualArea();
+                MessageBox.Show("Площадь_В: " + result);
+            }
+            else if (t is IsoscelesTriangle)
+            {
+                IsoscelesTriangle activeTriangle = (IsoscelesTriangle)t;
+                double result = activeTriangle.CalculateVirtualArea();
+                MessageBox.Show("Площадь_В: " + result);
+            }
+            else if (t is Point)
+            {
+                Point activePoint = (Point)t;
+                double result = activePoint.CalculateVirtualArea();
+                MessageBox.Show("Площадь_В: " + result);
+            }
+            else
+            {
+                MessageBox.Show("Невозможно вычислить Площадь_В для активного объекта.");
+            }
+        }
+
+        private void Diametr(object sender, EventArgs e)
+        {
+            if (t is Circle)
+            {
+                Circle activeCircle = (Circle)t;
+                double result = activeCircle.GetDiameter();
+                MessageBox.Show("Диаметр: " + result);
+            }
+            else
+            {
+                MessageBox.Show("Метод GetDiameter() для активного объекта не определен");
+            }
+        }
+
+        private void Perimeter(object sender, EventArgs e)
+        {
+            if (t is IsoscelesTriangle)
+            {
+                IsoscelesTriangle activeTriangle = (IsoscelesTriangle)t;
+                double result = activeTriangle.CalculatePerimetr();
+                MessageBox.Show("Периметр: " + result);
+            }
+            else if (t is Quadrant)
+            {
+                Quadrant activeQuadrant = (Quadrant)t;
+                double result = activeQuadrant.CalculatePerimeter();
+                MessageBox.Show("Периметр: " + result);
+            }
+            else
+            {
+                MessageBox.Show("Метод GetPerimeter() для активного объекта не определен");
+            }
+        }
+
+        private void Diagonal(object sender, EventArgs e)
+        {
+            if (t is Quadrant)
+            {
+                Quadrant activeQuadrant = (Quadrant)t;
+                double result = activeQuadrant.CalculateDiagonal();
+                MessageBox.Show("Диагональ: " + result);
+            }
+            else
+            {
+                MessageBox.Show("Метод GetDiagonal() для активного объекта не определен");
+            }
+        }
+
     }
 }

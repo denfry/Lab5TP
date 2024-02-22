@@ -14,13 +14,18 @@ namespace Lab5TP
         {
             this.radius = radius;
         }
+
+        public double GetDiameter()
+        {
+            return 2 * radius;
+        }
         public override double CalculateVirtualArea()
         {
             return Math.PI * radius * radius;
         }
-        public double CalculateDiametr()
+        public double CalculateArea()
         {
-            return 2 * radius;
+            return Math.PI * radius * radius;
         }
     }
 }

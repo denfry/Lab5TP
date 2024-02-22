@@ -24,5 +24,9 @@ namespace Lab5TP
         {
             return baseLength + sideLength * 2;
         }
+        public double CalculateArea()
+        {
+            return baseLength * sideLength / 2;
+        }
     }
 }

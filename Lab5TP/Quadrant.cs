@@ -18,6 +18,10 @@ namespace Lab5TP
         {
             return sideLength * sideLength;
         }
+        public double CalculateArea()
+        {
+            return sideLength * sideLength;
+        }
         public double CalculateDiagonal()
         {
             return Math.Sqrt(2) * sideLength;
